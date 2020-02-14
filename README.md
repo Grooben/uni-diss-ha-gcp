@@ -6,5 +6,5 @@ High availability (HA) storage services are now commonplace as part of cloud pro
 * .sh scripts which can be used to deploy additional resources required for testing. 
 * Findings and the final report will be included when written.
 * Infrastracture diagrams 
-* Terrafrom configuration files for cross-platform deployment
+* Terrafrom configuration files for cross-platform deployment\
 When this repo is made public, it will be used for future referencing, and fair usage will be allowed. I wouldn't recommend ripping off the work here for your academic use because of this little thing called plagiarism...
