@@ -1,0 +1,7 @@
+# Author: Oliver Martin Grooby - University of Lincoln
+# Date: Feb 2020
+# Description: A YAML Script which generates the required Virtual Machines
+# and Networking required for the project.
+
+imports:
+  - path: vm-template.jinja
