@@ -1,0 +1,3 @@
+[submodule "mysql-rest"]
+	path = mysql-rest
+	url = https://github.com/OhGrooben/mysql-rest.git
