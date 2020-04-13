@@ -13,11 +13,6 @@ resources:
               value: |
                 {{ imports['startup-script'] | indent(16) }}
             {% endif %}
-            {% if imports['startup-script-nginx'] %}
-            - key: startup-script
-              value: |
-                {{ imports['startup-script-nginx'] | indent(16) }}
-            {% endif %}
             {% for i in properties["metadata"] %}
             - {{i}}
             {% endfor%}
