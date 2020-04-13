@@ -84,6 +84,6 @@ resources:
   properties:
     zone: europe-west4-b
     network: $(ref.production.selfLink)
-    subnet: $(ref.master-signle.selfLink)
+    subnet: $(ref.master-single.selfLink)
     tags:
       - http
