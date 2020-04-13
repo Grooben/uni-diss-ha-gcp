@@ -9,7 +9,15 @@ resources:
     sourceRanges: ["0.0.0.0/0"]
     allowed:
     - IPProtocol: {{properties["protocol"]}}
-      ports: ["80", "443", "3306"]
+      ports: ["80", "443"]
+- name: {{env["name"]}}-allow-mysql
+  type: compute.v1.firewall
+  properties:
+    network: {{properties["network"]}} 
+    sourceRanges: ["0.0.0.0/0"]
+    allowed:
+    - IPProtocol: {{properties["protocol"]}}
+      ports: ["3306"]
 - name: {{env["name"]}}-allow-ssh
   type: compute.v1.firewall
   properties:
