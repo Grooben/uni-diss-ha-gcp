@@ -1,0 +1,8 @@
+# This Jinja file defines a basic VPC Network
+# for the use of this project.
+
+resources:
+- name: {{env["name"]}}
+  type: compute.v1.network
+  properties:
+    autoCreateSubnetworks: false
