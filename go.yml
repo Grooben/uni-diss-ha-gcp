@@ -17,23 +17,23 @@ imports:
 resources:
 # Create Network called production
 - name: production
-  type: production-network-template.jinja
+  type: network-template.jinja
 # Create a subnets for each group of machines. This will be used later
 # for External LB. All subnets are in the EU-WEST4 zone for ease.
 - name: master-master
-  type: lamp-subnetwork-template.jinja
+  type: subnetwork-template.jinja
   properties:
     ipRange: 10.10.0.0/16
     network: $(ref.production.selfLink)
     region: europe-west4
 - name: master-slave
-  type: lamp-subnetwork-template.jinja
+  type: subnetwork-template.jinja
   properties:
     ipRange: 10.20.0.0/16
     network: $(ref.production.selfLink)
     region: europe-west4
 - name: master-single
-  type: lamp-subnetwork-template.jinja
+  type: subnetwork-template.jinja
   properties:
     ipRange: 10.30.0.0/16
     network: $(ref.production.selfLink)
