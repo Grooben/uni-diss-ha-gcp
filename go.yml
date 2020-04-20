@@ -1,0 +1,89 @@
+# Below is a YAML script that will generate the infastracture required
+# for the project
+imports:
+# Import the Production Newtwork Jinja Template
+- path: network-template.jinja
+# Import the LAMP Subnetwork Jinja Template 
+- path: subnetwork-template.jinja
+# Import the Firewall Jinja Template
+- path: firewall-template.jinja
+# Import the "Small LAMP VM" Template
+- path: vm-template.jinja
+# Import a startup script used to configure the GCE
+# Virtual Machines.
+- path: startup.sh
+  name: startup-script
+
+resources:
+# Create Network called production
+- name: production
+  type: production-network-template.jinja
+# Create a subnets for each group of machines. This will be used later
+# for External LB. All subnets are in the EU-WEST4 zone for ease.
+- name: master-master
+  type: lamp-subnetwork-template.jinja
+  properties:
+    ipRange: 10.10.0.0/16
+    network: $(ref.production.selfLink)
+    region: europe-west4
+- name: master-slave
+  type: lamp-subnetwork-template.jinja
+  properties:
+    ipRange: 10.20.0.0/16
+    network: $(ref.production.selfLink)
+    region: europe-west4
+- name: master-single
+  type: lamp-subnetwork-template.jinja
+  properties:
+    ipRange: 10.30.0.0/16
+    network: $(ref.production.selfLink)
+    region: europe-west4
+# Create a Firewall for the VPC Network, and place Prodcution
+# behind it.
+- name: service
+  type: firewall-template.jinja
+  properties:
+    network: $(ref.production.selfLink)
+    protocol: TCP
+# The section below creates 5 virtual machines, 2 that will be used for a master-master configuration,
+# 2 for a master-slave configuration and 1 as a single entity machine.
+- name: mm-01
+  type: vm-template.jinja
+  properties:
+    zone: europe-west4-b
+    network: $(ref.production.selfLink)
+    subnet: $(ref.master-master.selfLink)
+    tags:
+      - http
+- name: mm-02
+  type: vm-template.jinja
+  properties:
+    zone: europe-west4-b
+    network: $(ref.production.selfLink)
+    subnet: $(ref.master-master.selfLink)
+    tags:
+      - http
+- name: ms-01
+  type: vm-template.jinja
+  properties:
+    zone: europe-west4-b
+    network: $(ref.production.selfLink)
+    subnet: $(ref.master-slave.selfLink)
+    tags:
+      - http
+- name: ms-02
+  type: vm-template.jinja
+  properties:
+    zone: europe-west4-b
+    network: $(ref.production.selfLink)
+    subnet: $(ref.master-slave.selfLink)
+    tags:
+      - http
+- name: sng-01
+  type: vm-template.jinja
+  properties:
+    zone: europe-west4-b
+    network: $(ref.production.selfLink)
+    subnet: $(ref.master-signle.selfLink)
+    tags:
+      - http
