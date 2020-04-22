@@ -1,8 +1,7 @@
 --
 -- Table structure for table `evac_routes`
 --
-
-CREATE TABLE IF NOT EXISTS `project`.`evac_routes` (
+CREATE TABLE IF NOT EXISTS `data`.`evac_routes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `lng` float(10,6) NOT NULL,
   `lat` float(10,6) NOT NULL,
@@ -21,7 +20,7 @@ CREATE TABLE IF NOT EXISTS `project`.`evac_routes` (
 -- Dumping data for table `evac_routes`
 --
 
-INSERT INTO `project`.`evac_routes` (`id`, `lng`, `lat`, `name`, `route_id`, `sector_id`, `available`, `created_at`, `updated_at`) VALUES
+INSERT INTO `data`.`evac_routes` (`id`, `lng`, `lat`, `name`, `route_id`, `sector_id`, `available`, `created_at`, `updated_at`) VALUES
 (651, 0.279500, 53.311859, 'Route 1', '1', '1', 1, '2016-04-14 09:39:07', '2016-07-05 09:03:09'),
 (652, 0.278995, 53.311562, 'Route 1', '1', '1', 1, '2016-04-14 09:39:08', '2016-07-05 09:03:09'),
 (653, 0.277809, 53.310928, 'Route 1', '1', '1', 1, '2016-04-14 09:39:08', '2016-07-05 09:03:09'),
@@ -539,7 +538,7 @@ INSERT INTO `project`.`evac_routes` (`id`, `lng`, `lat`, `name`, `route_id`, `se
 (1165, 0.215107, 53.272503, 'Route 3', '3', '2', 1, '2016-07-05 08:54:58', '2016-07-05 08:54:58'),
 (1166, 0.214279, 53.272072, 'Route 3', '3', '2', 1, '2016-07-05 08:54:58', '2016-07-05 08:54:58'),
 (1167, 0.213712, 53.271683, 'Route 3', '3', '2', 1, '2016-07-05 08:54:58', '2016-07-05 08:54:58');
-INSERT INTO `project`.`evac_routes` (`id`, `lng`, `lat`, `name`, `route_id`, `sector_id`, `available`, `created_at`, `updated_at`) VALUES
+INSERT INTO `data`.`evac_routes` (`id`, `lng`, `lat`, `name`, `route_id`, `sector_id`, `available`, `created_at`, `updated_at`) VALUES
 (1168, 0.212908, 53.271164, 'Route 3', '3', '2', 1, '2016-07-05 08:54:58', '2016-07-05 08:54:58'),
 (1169, 0.211995, 53.270748, 'Route 3', '3', '2', 1, '2016-07-05 08:54:58', '2016-07-05 08:54:58'),
 (1170, 0.210704, 53.270256, 'Route 3', '3', '2', 1, '2016-07-05 08:54:58', '2016-07-05 08:54:58'),
@@ -1054,7 +1053,7 @@ INSERT INTO `project`.`evac_routes` (`id`, `lng`, `lat`, `name`, `route_id`, `se
 (1679, 0.323828, 53.198856, 'Route 5', '5', '3', 1, '2016-07-05 08:55:48', '2016-07-05 08:55:48'),
 (1680, 0.325046, 53.199055, 'Route 5', '5', '3', 1, '2016-07-05 08:55:48', '2016-07-05 08:55:48'),
 (1681, 0.325566, 53.199116, 'Route 5', '5', '3', 1, '2016-07-05 08:55:48', '2016-07-05 08:55:48');
-INSERT INTO `project`.`evac_routes` (`id`, `lng`, `lat`, `name`, `route_id`, `sector_id`, `available`, `created_at`, `updated_at`) VALUES
+INSERT INTO `data`.`evac_routes` (`id`, `lng`, `lat`, `name`, `route_id`, `sector_id`, `available`, `created_at`, `updated_at`) VALUES
 (1682, 0.326054, 53.199104, 'Route 5', '5', '3', 1, '2016-07-05 08:55:48', '2016-07-05 08:55:48'),
 (1683, -0.006438, 52.989094, 'Route 7', '7', '4', 1, '2016-07-05 08:56:37', '2016-07-05 08:56:37'),
 (1684, -0.006645, 52.989559, 'Route 7', '7', '4', 1, '2016-07-05 08:56:37', '2016-07-05 08:56:37'),
@@ -1565,7 +1564,7 @@ INSERT INTO `project`.`evac_routes` (`id`, `lng`, `lat`, `name`, `route_id`, `se
 (2189, -0.184561, 52.970741, 'Route 9', '9', '5', 1, '2016-07-05 09:02:09', '2016-07-05 09:02:09'),
 (2190, -0.182620, 52.970650, 'Route 9', '9', '5', 1, '2016-07-05 09:02:09', '2016-07-05 09:02:09'),
 (2191, -0.181239, 52.970627, 'Route 9', '9', '5', 1, '2016-07-05 09:02:09', '2016-07-05 09:02:09');
-INSERT INTO `project`.`evac_routes` (`id`, `lng`, `lat`, `name`, `route_id`, `sector_id`, `available`, `created_at`, `updated_at`) VALUES
+INSERT INTO `data`.`evac_routes` (`id`, `lng`, `lat`, `name`, `route_id`, `sector_id`, `available`, `created_at`, `updated_at`) VALUES
 (2192, -0.179854, 52.970715, 'Route 9', '9', '5', 1, '2016-07-05 09:02:09', '2016-07-05 09:02:09'),
 (2193, -0.178514, 52.970940, 'Route 9', '9', '5', 1, '2016-07-05 09:02:09', '2016-07-05 09:02:09'),
 (2194, -0.175506, 52.971279, 'Route 9', '9', '5', 1, '2016-07-05 09:02:09', '2016-07-05 09:02:09'),
@@ -2066,7 +2065,7 @@ INSERT INTO `project`.`evac_routes` (`id`, `lng`, `lat`, `name`, `route_id`, `se
 (2689, -0.098027, 52.872665, 'Route 11', '11', '6', 1, '2016-07-05 09:03:41', '2016-07-05 09:03:41'),
 (2690, -0.096921, 52.874039, 'Route 11', '11', '6', 1, '2016-07-05 09:03:41', '2016-07-05 09:03:41'),
 (2691, -0.095004, 52.876415, 'Route 11', '11', '6', 1, '2016-07-05 09:03:41', '2016-07-05 09:03:41');
-INSERT INTO `project`.`evac_routes` (`id`, `lng`, `lat`, `name`, `route_id`, `sector_id`, `available`, `created_at`, `updated_at`) VALUES
+INSERT INTO `data`.`evac_routes` (`id`, `lng`, `lat`, `name`, `route_id`, `sector_id`, `available`, `created_at`, `updated_at`) VALUES
 (2692, -0.093577, 52.878094, 'Route 11', '11', '6', 1, '2016-07-05 09:03:41', '2016-07-05 09:03:41'),
 (2693, -0.092520, 52.879498, 'Route 11', '11', '6', 1, '2016-07-05 09:03:41', '2016-07-05 09:03:41'),
 (2694, -0.091391, 52.880775, 'Route 11', '11', '6', 1, '2016-07-05 09:03:41', '2016-07-05 09:03:41'),
