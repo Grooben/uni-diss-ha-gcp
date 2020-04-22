@@ -5,6 +5,6 @@ High availability (HA) storage services are now commonplace as part of cloud pro
 * Several Jinja templates and YAML files which will define the infrastructure as code
 * .sh scripts which can be used to deploy additional resources required for testing. 
 * Findings and the final report will be included when written.
-* Infrastracture diagrams 
-* Terrafrom configuration files for cross-platform deployment\
+## Image URL
+The image created for this project can be downloaded [here](https://storage.googleapis.com/16605155/master-stack-v3.tar.gz). You will need to follow the instructions of your chosen cloud platform in order to import the image.
 When this repo is made public, it will be used for future referencing, and fair usage will be allowed. I wouldn't recommend ripping off the work here for your academic use because of this little thing called plagiarism...

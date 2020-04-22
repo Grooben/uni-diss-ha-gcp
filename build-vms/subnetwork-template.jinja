@@ -1,0 +1,10 @@
+# This Jinja file defines a subnetwork from a named network
+# for the use of this project.
+
+resources:
+- name: {{env["name"]}}
+  type: compute.v1.subnetwork
+  properties: 
+    ipCidrRange: {{properties["ipRange"]}}
+    network: {{properties["network"]}}
+    region: {{properties["region"]}}
