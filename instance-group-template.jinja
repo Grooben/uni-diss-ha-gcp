@@ -1,0 +1,6 @@
+resources:
+- name: {{env["name"]}}
+  type: compute.v1.instanceGroup
+  properties:
+    zone: {{properties["zone"]}}
+    network: {{properties["network"]}}

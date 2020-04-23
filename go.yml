@@ -1,48 +1,56 @@
-# Below is a YAML script that will generate the infastracture required
-# for the project
-imports:
-# Import the Production Newtwork Jinja Template
-- path: network-template.jinja
-# Import the LAMP Subnetwork Jinja Template 
-- path: subnetwork-template.jinja
-# Import the Firewall Jinja Template
-- path: firewall-template.jinja
-# Import the "Small LAMP VM" Template
-- path: vm-template.jinja
+  # Below is a YAML script that will generate the infastracture required
+  # for the project
+  imports:
+  # Import the Newtwork Jinja Template
+  - path: network-template.jinja
+  # Import the  Subnetwork Jinja Template 
+  - path: subnetwork-template.jinja
+  # Import the Firewall Jinja Template
+  - path: firewall-template.jinja
+  # Import the Instance Group Template
+  - path: instance-group-template.jinja
+  # Import the VM Template - check the image URL has been changed if the
+  # image has been imported!
+  - path: vm-template.jinja
 
-resources:
-# Create Network called production
-- name: image-test-net
-  type: network-template.jinja
-- name: image-test
-  type: subnetwork-template.jinja
-  properties:
-    ipRange: 10.50.0.0/16
-    network: $(ref.image-test-net.selfLink)
-    region: europe-west4
-# Create a Firewall for the VPC Network, and place Prodcution
-# behind it.
-- name: img-test
-  type: firewall-template.jinja
-  properties:
-    network: $(ref.image-test-net.selfLink)
-    protocol: TCP
-# The section below creates 5 virtual machines, 2 that will be used for a master-master configuration,
-# 2 for a master-slave configuration and 1 as a single entity machine.
-- name: img-01
-  type: vm-template.jinja
-  properties:
-    zone: europe-west4-b
-    network: $(ref.image-test-net.selfLink)
-    subnet: $(ref.image-test.selfLink)
-    tags:
-      - http
-- name: img-02
-  type: vm-template.jinja
-  properties:
-    zone: europe-west4-b
-    network: $(ref.image-test-net.selfLink)
-    subnet: $(ref.image-test.selfLink)
-    tags:
-      - http
+  resources:
+  # Create Network called production
+  - name: production
+    type: network-template.jinja
+  - name: db-serv
+    type: subnetwork-template.jinja
+    properties:
+      ipRange: 10.50.0.0/16
+      network: $(ref.production.selfLink)
+      region: europe-west4
+  # Create a Firewall for the VPC Network, and place Prodcution
+  # behind it.
+  - name: service
+    type: firewall-template.jinja
+    properties:
+      network: $(ref.production.selfLink)
+      protocol: TCP
+  # The section below creates 2 virtual machines, which will be running the project
+  # image.
+  - name: stack-1
+    type: vm-template.jinja
+    properties:
+      zone: europe-west4-b
+      network: $(ref.production.selfLink)
+      subnet: $(ref.db-serv.selfLink)
+      tags:
+        - http
+  - name: stack-2
+    type: vm-template.jinja
+    properties:
+      zone: europe-west4-b
+      network: $(ref.production.selfLink)
+      subnet: $(ref.db-serv.selfLink)
+      tags:
+        - http
+  - name: stack-ig
+    type: instance-group-template.jinja
+    properties:
+      zone: europe-west4-b  
+      network:  $(ref.production.selfLink)
 
